@@ -16,10 +16,10 @@ const FeaturedProducts = ({ products, loading }) => {
     );
   }
 
-  // Mezclar productos y tomar los primeros 60
+  // Mezclar productos y tomar los primeros 9
   const shuffledProducts = products
     .sort(() => 0.5 - Math.random())
-    .slice(0, 60);
+    .slice(0, 9);
 
 
   

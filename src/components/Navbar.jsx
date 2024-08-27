@@ -134,6 +134,40 @@ const Navbar = () => {
                     text-underline-position: under;
                   
                 }
+                .categories-button-link {
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 1rem;
+                }
+
+.categories-links {
+                    color: #fff;
+                    text-decoration: none;
+                    }
+
+                .categories-links:hover {
+                    color: orange;
+                    text-decoration: underline;
+                }
+
+                .categories-button-link {
+                
+                    color: #fff;
+                    text-decoration: none;
+                    }
+
+
+                   .categories-links:hover .categories-button-link {
+                        color: orange;
+                    text-decoration: underline;
+                   }
+
+                     .categories-menu:hover .categories-button-link {
+
+                        color: orange;
+                    text-decoration: underline;
+                    }
+
 
                 `}
             </style>
@@ -149,6 +183,8 @@ const Navbar = () => {
                  } , color: '#fff', textDecoration: 'none', opacity: '0.95', padding: '0.5rem', borderRadius: '0.5rem'
          }}>
          <Link 
+          className='categories-button-link'
+    
          onClick={handleMouseLeave}
          to="/categories" style={{ textDecoration: 'none' }}>
       
@@ -179,6 +215,7 @@ const Navbar = () => {
              {categories.map((category) => (
 
               <Link 
+                   className='categories-links'
               onClick={handleMouseLeave}
               key={category.slug} sx={{ fontSize: '1.5rem', cursor: 'pointer', color: '#fff', display: 'inline-flex', textDecoration: 'none', width: 'fit-content' , '&:hover': { color: 'orange', textDecoration: 'underline' } }}
               to={`/category/${category.slug}`} style={{ textDecoration: 'none' }}>
