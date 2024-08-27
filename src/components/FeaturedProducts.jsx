@@ -7,7 +7,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import useFetchProducts from '../hooks/useFetchProducts';
 
-const FeaturedProducts = ({ products, loading }) => {
+const FeaturedProducts = () => {
+  const { products, loading } = useFetchProducts(); // Llama al hook dentro del componente funcional
+
   if (loading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -16,23 +18,13 @@ const FeaturedProducts = ({ products, loading }) => {
     );
   }
 
-  // Mezclar productos y tomar los primeros 9
-  const shuffledProducts = products
+  // Seleccionar 9 productos aleatorios
+  const randomProducts = products
     .sort(() => 0.5 - Math.random())
     .slice(0, 9);
 
-
-  
-//Obtener productos que tenga rating mayor a 4
-  const productsRating = products.filter((product) => product.rating > 4.5);
-  console.log
-
-
-
-
   // Configuración del carrusel
   const settings = {
-    
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -46,7 +38,6 @@ const FeaturedProducts = ({ products, loading }) => {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
-        
         }
       },
       {
@@ -60,67 +51,61 @@ const FeaturedProducts = ({ products, loading }) => {
   };
 
   return (
- <>
-
-
-    
-   
-   <Box className="featured-products-slider" sx={{ padding: '0 3rem', backgroundColor: '#333' , paddingBottom: '8rem' ,
-   '@media (max-width: 600px)': {
-    padding: '0 1rem',
-    paddingBottom: '4rem',
-  },
-
-   }}>
-   <Typography variant="h4" align="center" sx={{ color: '#fff',  marginBottom: 4 }}>
+    <Box 
+      className="featured-products-slider" 
+      sx={{ 
+        padding: '0 3rem', 
+        backgroundColor: '#333',
+        paddingBottom: '8rem',
+        '@media (max-width: 600px)': {
+          padding: '0 1rem',
+          paddingBottom: '4rem',
+        },
+      }}
+    >
+      <Typography variant="h4" align="center" sx={{ color: '#fff', marginBottom: 4 }}>
         Productos Destacados
       </Typography>
- 
-      <Slider {...settings}
-      className='slider-featured-products'
-      >
-   
-        {productsRating.map((product) => (
+
+      <Slider {...settings} className='slider-featured-products'>
+        {randomProducts.map((product) => (
           <Box 
-          key={product.id} 
-          sx={{
-            '@media (max-width: 600px)': {
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-
-          }
-          }}>
-            <ProductCard  product={product} loading={loading}
-            className='product-card-featured'
-            style={{  margin: '10px' ,  textAlign: 'webkit-center', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center',
-
+            key={product.id} 
+            sx={{
               '@media (max-width: 600px)': {
-                maxWidth: '350px',
-                margin: '0',
-              },
-              }}>
-          </ProductCard>
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }
+            }}
+          >
+            <ProductCard 
+              product={product}
+              className='product-card-featured'
+              style={{  
+                margin: '10px',  
+                textAlign: 'center', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                justifyContent: 'flex-start', 
+                alignItems: 'center',
+                '@media (max-width: 600px)': {
+                  maxWidth: '350px',
+                  margin: '0',
+                },
+              }}
+            />
           </Box>
-
- 
-
         ))}
       </Slider>
-
-      </Box>
-    
-    </>
+    </Box>
   );
 };
-
 
 FeaturedProducts.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      rating: PropTypes.number.isRequired,
-  
     })
   ).isRequired,
   loading: PropTypes.bool.isRequired,
