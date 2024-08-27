@@ -14,9 +14,10 @@ const transformSlug = (product) => {
 
 const ProductCard = ({ product }) => {
   return (
+    <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
     <Card 
     className='product-card-container'
-    component={Link} to={`/product/${product.id}`}
+
     sx={{ maxWidth: 345, margin: '10px' , textAlign: 'webkit-center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , 
     '&:hover': {
     boxShadow: '0 0 10px rgba(0,0,0,0.5)',
@@ -65,9 +66,10 @@ const ProductCard = ({ product }) => {
           {transformSlug(product)}
         </Typography>
  
+ <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
         <Typography 
         className='product-title'
-        gutterBottom variant="h6" component={Link} to={`/product/${product.id}`} 
+        gutterBottom variant="h6"  
         sx={{ color: '#333', opacity: 0.8, textDecoration: 'none', '&:hover': { color: 'orange', textDecoration: 'underline' },
         '@media (max-width: 600px)': {
           fontSize: '0.8rem',
@@ -76,6 +78,7 @@ const ProductCard = ({ product }) => {
          {product.title.slice(0, 20)}
       
         </Typography>
+        </Link>
 
           <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' , gap: 2,
        
@@ -127,6 +130,7 @@ const ProductCard = ({ product }) => {
       </CardContent>
    
     </Card>
+    </Link>
   );
 };
 
