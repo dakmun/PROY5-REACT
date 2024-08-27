@@ -53,7 +53,7 @@ const Navbar = () => {
         {categories.map((category) => (
           <ListItem button 
           onClick={toggleDrawer(false)}
-          component={Link} to={`/category/${category.slug}`}  reloadDocument
+          component={Link} to={`/category/${category.slug}`} 
           key={category.name}>
             <ListItemText primary={category.name} sx={{ color:'#fff', '&:hover': { color: 'orange', textDecoration: 'underline' } }} />
           </ListItem>
