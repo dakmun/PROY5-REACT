@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Typography, CircularProgress, Grid } from '@mui/material';
-import ProductCard from '../components/ProductCard';
+import ProductCardCategory from '../components/ProductCardCategory';
 import SubcategoryMenu from '../components/SubcategoryMenu';
 
 // Función para transformar el slug
@@ -109,6 +109,7 @@ const CategoryPage = () => {
 
         <Grid container spacing={2}
           sx={{
+            justifyContent: 'center',
             '@media (max-width: 600px)': {
               justifyContent: 'center',
               textAlign: '-webkit-center', // Alinear el contenido al centro en pantallas pequeñas
@@ -116,7 +117,7 @@ const CategoryPage = () => {
           }}
         >
           {products.map((product) => (
-            <Grid item xs={6} sm={3.5} md={2.5} key={product.id}
+            <Grid item xs={6} sm={4} md={3} key={product.id}
               sx={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -130,7 +131,7 @@ const CategoryPage = () => {
             >
               {/* Añadimos la clase personalizada "category-product-card" */}
               <Box className="category-product-card">
-                <ProductCard product={product} />
+                <ProductCardCategory product={product} />
               </Box>
             </Grid>
           ))}

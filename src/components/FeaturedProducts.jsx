@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Typography, CircularProgress } from '@mui/material';
 import Slider from 'react-slick';
-import ProductCard from './ProductCard';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import useFetchProducts from '../hooks/useFetchProducts';
+import ProductCardFeatured from './ProductCardFeatured';
 
 const FeaturedProducts = () => {
   const { products, loading } = useFetchProducts();
@@ -121,7 +121,7 @@ const FeaturedProducts = () => {
               },
             }}
           >
-            <ProductCard product={product} />
+            <ProductCardFeatured product={product} />
           </Box>
         ))}
       </Slider>

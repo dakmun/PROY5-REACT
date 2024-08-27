@@ -10,15 +10,15 @@ const transformSlug = (product) => {
     .join(' ');
 };
 
-const ProductCard = ({ product }) => {
+const ProductCardCategory = ({ product }) => {
   return (
     <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
       <Card 
-        className='product-card-container'
+        className='category-product-card-container'
         sx={{ 
           maxWidth: 345, 
           margin: '10px', 
-          textAlign: 'webkit-center', 
+          textAlign: 'center', 
           display: 'flex', 
           flexDirection: 'column', 
           justifyContent: 'center', 
@@ -29,35 +29,19 @@ const ProductCard = ({ product }) => {
             transition: 'all 0.3s',
           },
           '@media (max-width: 600px)': {
-            aspectRatio: '1/1',
             margin: '0',
+            width: '100%', // Ocupa todo el ancho disponible
           },
         }}
       >
         <CardMedia
-          sx={{ width: '200px', height: 'auto', textAlign: 'webkit-center', maxHeight: '200px', minHeight: '200px'}}
+          sx={{ width: '100%', height: 'auto', textAlign: 'center', maxHeight: '200px', minHeight: '200px'}}
           component="img"
-          height="auto"     
           image={product.images[0]}
           alt={product.title}
-          className='product-img'        
+          className='category-product-img'        
         />
-        <style>{`
-          .product-img {
-            object-fit: contain;
-          }
-
-          .category-product-card .product-title {
-            font-size: 0.8rem; /* Cambia el tamaño de la fuente solo en CategoryPage */
-          }
-          
-          .product-card-container:hover .product-title {
-            color: orange;
-            text-decoration: underline;
-            font-weight: bold;
-            font-size: 1rem;
-          }
-        `}</style>
+   
         <CardContent sx={{padding: '0px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>  
 
           <Typography variant="h6" color="#333" 
@@ -66,27 +50,25 @@ const ProductCard = ({ product }) => {
             {transformSlug(product)}
           </Typography>
    
-          <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
-            <Typography 
-              className='product-title'
-              gutterBottom 
-              variant="h6"  
-              sx={{ 
-                color: '#333', 
-                opacity: 0.8, 
-                textDecoration: 'none', 
-                '&:hover': { 
-                  color: 'orange', 
-                  textDecoration: 'underline' 
-                },
-                '@media (max-width: 600px)': {
-                  fontSize: '1.15rem',
-                },
-              }}
-            >
-              {product.title.slice(0, 20)}
-            </Typography>
-          </Link>
+          <Typography 
+            className='category-product-title'
+            gutterBottom 
+            variant="h6"  
+            sx={{ 
+              color: '#333', 
+              opacity: 0.8, 
+              textDecoration: 'none', 
+              '&:hover': { 
+                color: 'orange', 
+                textDecoration: 'underline' 
+              },
+              '@media (max-width: 600px)': {
+                fontSize: '0.8rem', // Ajusta el tamaño para pantallas pequeñas
+              },
+            }}
+          >
+            {product.title.slice(0, 20)}
+          </Typography>
 
           <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 2 }}>
             <Typography 
@@ -150,4 +132,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default ProductCardCategory;
