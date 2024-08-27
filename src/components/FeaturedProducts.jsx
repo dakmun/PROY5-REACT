@@ -43,8 +43,8 @@ const FeaturedProducts = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1
+          slidesToShow: 2,  // Mostrar 2 slides en pantallas pequeñas
+          slidesToScroll: 1,
         }
       }
     ]
@@ -54,11 +54,14 @@ const FeaturedProducts = () => {
     <Box 
       className="featured-products-slider" 
       sx={{ 
-        padding: '0 3rem', 
+        padding: '0 4rem', // Padding para la versión de escritorio
         backgroundColor: '#333',
         paddingBottom: '8rem',
+        '@media (max-width: 1024px)': {
+          padding: '0 2rem', // Reduce padding en pantallas medianas
+        },
         '@media (max-width: 600px)': {
-          padding: '0 1rem',
+          padding: '0 1rem', // Reduce padding en pantallas pequeñas
           paddingBottom: '4rem',
         },
       }}
@@ -69,32 +72,23 @@ const FeaturedProducts = () => {
 
       <Slider {...settings} className='slider-featured-products'>
         {randomProducts.map((product) => (
-          <Box 
-            key={product.id} 
+          <Box
+            key={product.id}
             sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: '0 5px', // Ajuste de espaciado para cada producto
               '@media (max-width: 600px)': {
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }
+                maxWidth: 'calc(100% - 20px)', // Ocupa casi todo el ancho en pantallas muy pequeñas
+                margin: '0 auto',
+                padding: '0 10px',
+              },
+      
             }}
           >
-            <ProductCard 
-              product={product}
-              className='product-card-featured'
-              style={{  
-                margin: '10px',  
-                textAlign: 'center', 
-                display: 'flex', 
-                flexDirection: 'column', 
-                justifyContent: 'flex-start', 
-                alignItems: 'center',
-                '@media (max-width: 600px)': {
-                  maxWidth: '350px',
-                  margin: '0',
-                },
-              }}
-            />
+            <ProductCard product={product} />
           </Box>
         ))}
       </Slider>

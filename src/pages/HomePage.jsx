@@ -19,9 +19,22 @@ const HomePage = () => {
       <HeroCarousel  />
       </Box>
 
-      <Box>
-      <FeaturedProducts products={products} loading={productsLoading} />  
-    </Box>
+      <Box
+  sx={{
+    position: 'relative',
+    zIndex: 1,  // Asegúrate de que esté por encima de otros elementos
+    backgroundColor: '#333',
+
+    overflow: 'visible',
+    //  backgroundColor: '#333',
+
+    paddingBottom: '5rem',
+
+  }}
+>
+  <FeaturedProducts products={products} loading={productsLoading} />
+</Box>
+
 
     </> 
   );
