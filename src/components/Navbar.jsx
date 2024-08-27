@@ -44,7 +44,7 @@ const Navbar = () => {
   const drawer = (
     <Box sx={{ width: 250, backgroundColor: '#202020', height: '100%' }}>
       <Toolbar>
-      <Typography variant="h6" component={Link} to="/" sx={{ textDecoration: 'none', display: 'flex', alignItems: 'center' , padding: '0.5rem', borderRadius: '0.5rem' , opacity: '1' , color: 'orange' }}>
+      <Typography variant="h6" component={Link} to="/proy5" sx={{ textDecoration: 'none', display: 'flex', alignItems: 'center' , padding: '0.5rem', borderRadius: '0.5rem' , opacity: '1' , color: 'orange' }}>
 <StoreIcon/> LOGO
 </Typography>
       </Toolbar>
@@ -53,7 +53,7 @@ const Navbar = () => {
         {categories.map((category) => (
           <ListItem button 
           onClick={toggleDrawer(false)}
-          component={Link} to={`/category/${category.slug}`}  reloadDocument
+          component={Link} to={`/proy5/category/${category.slug}`}  reloadDocument
           key={category.name}>
             <ListItemText primary={category.name} sx={{ color:'#fff', '&:hover': { color: 'orange', textDecoration: 'underline' } }} />
           </ListItem>
@@ -79,7 +79,7 @@ const Navbar = () => {
           edge="start" aria-label="menu" onClick={toggleDrawer(true)}>
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component={Link} to="/" sx={{ textDecoration: 'none', display: 'flex', alignItems: 'center' , padding: '0.5rem', borderRadius: '0.5rem' , opacity: '1' , color: 'orange' }}>
+          <Typography variant="h6" component={Link} to="/proy5" sx={{ textDecoration: 'none', display: 'flex', alignItems: 'center' , padding: '0.5rem', borderRadius: '0.5rem' , opacity: '1' , color: 'orange' }}>
           <StoreIcon/> LOGO
 </Typography>
          </>
@@ -88,14 +88,14 @@ const Navbar = () => {
     
         {!isMobile && (
 <>
-<Typography variant="h6" component={Link} to="/" sx={{ textDecoration: 'none', display: 'flex', alignItems: 'center' , padding: '0.5rem', borderRadius: '0.5rem' , opacity: '1' , color: 'orange' }}>
+<Typography variant="h6" component={Link} to="/proy5" sx={{ textDecoration: 'none', display: 'flex', alignItems: 'center' , padding: '0.5rem', borderRadius: '0.5rem' , opacity: '1' , color: 'orange' }}>
 <StoreIcon/> LOGO
 </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
              
 
               <Typography 
-                component={Link} to="/"
+                component={Link} to="/proy5"
             sx={{ 
         
                 '&:hover': {   color: 'orange',
@@ -130,7 +130,7 @@ const Navbar = () => {
             </style>
             <Button 
             onClick={handleMouseLeave}
-            component={Link} to='/categories'
+            component={Link} to='/proy5/categories'
          
             sx={{ 
         
@@ -166,7 +166,7 @@ const Navbar = () => {
              {categories.map((category) => (
                <Typography 
                 onClick={handleMouseLeave}
-                 component={Link} to={`/category/${category.slug}`} reloadDocument
+                 component={Link} to={`/proy5/category/${category.slug}`} reloadDocument
                key={category.name} sx={{ fontSize: '1.5rem', cursor: 'pointer', color: '#fff', display: 'inline-flex', textDecoration: 'none', width: 'fit-content' , '&:hover': { color: 'orange', textDecoration: 'underline' } }}>
                  {category.name}
                </Typography>

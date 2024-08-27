@@ -16,10 +16,10 @@ const App = () => {
       <Navbar/>
 <ErrorBoundary>
         <Routes>
-          <Route path="/" element={<HomePage />} />     
-          <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/category/:slug" element={<CategoryPage />} />
-          <Route path="/categories" element={<CategoriesPage />} />
+          <Route path="/proy5" element={<HomePage />} />     
+          <Route path="/proy5/product/:id" element={<ProductPage />} />
+          <Route path="/proy5/category/:slug" element={<CategoryPage />} />
+          <Route path="/proy5/categories" element={<CategoriesPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </ErrorBoundary> 

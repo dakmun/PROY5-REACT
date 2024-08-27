@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
   return (
     <Card 
     className='product-card-container'
-    component={Link} to={`/product/${product.id}`}
+    component={Link} to={`/proy5/product/${product.id}`}
     sx={{ maxWidth: 345, margin: '10px' , textAlign: 'webkit-center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , 
     '&:hover': {
     boxShadow: '0 0 10px rgba(0,0,0,0.5)',
@@ -67,7 +67,7 @@ const ProductCard = ({ product }) => {
  
         <Typography 
         className='product-title'
-        gutterBottom variant="h6" component={Link} to={`/product/${product.id}`} 
+        gutterBottom variant="h6" component={Link} to={`/proy5/product/${product.id}`} 
         sx={{ color: '#333', opacity: 0.8, textDecoration: 'none', '&:hover': { color: 'orange', textDecoration: 'underline' },
         '@media (max-width: 600px)': {
           fontSize: '0.8rem',
