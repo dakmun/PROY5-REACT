@@ -31,6 +31,7 @@ const FeaturedProducts = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    arrows: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -43,8 +44,9 @@ const FeaturedProducts = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,  // Mostrar 2 slides en pantallas pequeñas
+          slidesToShow: 1,  // Mostrar solo 1 slide en pantallas pequeñas
           slidesToScroll: 1,
+          arrows: true,
         }
       }
     ]
@@ -61,8 +63,32 @@ const FeaturedProducts = () => {
           padding: '0 2rem', // Reduce padding en pantallas medianas
         },
         '@media (max-width: 600px)': {
-          padding: '0 1rem', // Reduce padding en pantallas pequeñas
+          padding: '0 0.5rem', // Reduce padding en pantallas pequeñas
           paddingBottom: '4rem',
+        },
+        '.slick-prev, .slick-next': {
+          zIndex: 2, // Asegura que las flechas estén por encima del contenido
+          top: '50%', // Centra verticalmente las flechas
+          transform: 'translateY(-50%)',
+          width: '40px',
+          height: '40px',
+          backgroundColor: 'orange', // Color de fondo
+          borderRadius: '50%', // Hace el fondo de las flechas redondo
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          '&::before': {
+            fontSize: '20px', // Tamaño del icono de flecha
+            color: '#fff', // Color de la flecha
+            lineHeight: '1', // Asegura que la flecha esté centrada verticalmente
+            textAlign: 'center',
+          }
+        },
+        '.slick-prev': {
+          left: '10px', // Ajusta la posición de la flecha izquierda dentro de la tarjeta
+        },
+        '.slick-next': {
+          right: '10px', // Ajusta la posición de la flecha derecha dentro de la tarjeta
         },
       }}
     >
@@ -79,13 +105,13 @@ const FeaturedProducts = () => {
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              padding: '0 5px', // Ajuste de espaciado para cada producto
+              width: '100%',  // Ocupa todo el ancho disponible
+              maxWidth: '500px', // Ajusta el ancho máximo de la tarjeta en pantallas pequeñas
+              padding: '0', // Elimina padding extra
               '@media (max-width: 600px)': {
-                maxWidth: 'calc(100% - 20px)', // Ocupa casi todo el ancho en pantallas muy pequeñas
+                maxWidth: '90%', // Asegura que ocupe casi todo el ancho disponible en pantallas pequeñas
                 margin: '0 auto',
-                padding: '0 10px',
               },
-      
             }}
           >
             <ProductCard product={product} />

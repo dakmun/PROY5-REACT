@@ -31,7 +31,7 @@ const ProductCard = ({ product }) => {
  
 
     '@media (max-width: 600px)': {
-      maxWidth: '160px',
+      aspectRatio: '1/1',
       margin: '0',
     },
     }}>
@@ -72,7 +72,7 @@ const ProductCard = ({ product }) => {
         gutterBottom variant="h6"  
         sx={{ color: '#333', opacity: 0.8, textDecoration: 'none', '&:hover': { color: 'orange', textDecoration: 'underline' },
         '@media (max-width: 600px)': {
-          fontSize: '0.8rem',
+          fontSize: '1.15rem',
         },
         }}>
          {product.title.slice(0, 20)}

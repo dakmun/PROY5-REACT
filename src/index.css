@@ -27,13 +27,13 @@ body {
 }
 
 .slick-prev {
-  left: 0;
+  left: 16px;
   margin-left: 16px;
   z-index: 5;
 }
 
 .slick-next {
-  right: 0;
+  right: 16px;
   margin-right: 16px;
   z-index: 5;
 }
@@ -83,6 +83,7 @@ body {
   touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
   text-align: -webkit-center;
+  align-content: center;
 }
 
 .slick-slide {
