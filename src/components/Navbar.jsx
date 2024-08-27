@@ -137,7 +137,9 @@ const Navbar = () => {
 
                 `}
             </style>
-            <Link to="/categories" style={{ textDecoration: 'none' }}>
+            <Link 
+            onClick={handleMouseLeave}
+            to="/categories" style={{ textDecoration: 'none' }}>
             <Button 
             onClick={handleMouseLeave}
            
