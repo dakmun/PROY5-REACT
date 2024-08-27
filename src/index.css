@@ -1,0 +1,148 @@
+
+:root {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
+
+.slick-prev {
+  left: 0;
+  margin-left: 16px;
+  z-index: 5;
+}
+
+.slick-next {
+  right: 0;
+  margin-right: 16px;
+  z-index: 5;
+}
+
+.slick-prev, .slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  outline: none;
+  background: #ffa600;
+  border-radius: 12px;
+  opacity: 0.5;
+  padding: 8px;
+
+}
+
+.slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
+  color: #fff;
+  outline: none;
+  opacity: 0.8;
+  background: #ffa600;
+}
+
+
+
+.slider-featured-products {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+  text-align: -webkit-center;
+}
+
+.slick-slide {
+  display: flex;
+  flex-direction: row;
+}
+
+.slick-track {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.css-p5dp93 {
+
+
+  width: unset;
+}
+
+.css-1hvbd3a {
+  padding: 32px;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.css-1n8r2n6-MuiPaper-root {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 3 / 2;
+  flex-direction: column-reverse;
+}
+
+.css-1ld3b9g-MuiGrid-root>.MuiGrid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.css-1ld3b9g-MuiGrid-root {
+  justify-content: center;
+}
+
+.categories-img  {
+  width: 25%;
+  height: auto;
+}
+
+
+.css-dnntkr {
+  padding: 0;
+  
+}
