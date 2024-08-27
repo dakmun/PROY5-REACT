@@ -137,9 +137,7 @@ const Navbar = () => {
 
                 `}
             </style>
-            <Link 
-            onClick={handleMouseLeave}
-            to="/categories" style={{ textDecoration: 'none' }}>
+           
             <Button 
             onClick={handleMouseLeave}
            
@@ -149,16 +147,19 @@ const Navbar = () => {
                 '&:hover': {   color: 'orange',
                     textDecoration: 'underline', textDecorationColor: 'orange', textDecorationThickness: '2px', textDecorationStyle: 'solid', backgroundColor: 'transparent'
                  } , color: '#fff', textDecoration: 'none', opacity: '0.95', padding: '0.5rem', borderRadius: '0.5rem'
-         }}
-
+         }}>
+         <Link 
+         onClick={handleMouseLeave}
+         to="/categories" style={{ textDecoration: 'none' }}>
       
-            > Categorías </Button> </Link>
+             Categorías </Link> </Button> 
   
             {menuOpen && (
              <Box
              className='categories-menu'
              sx={{
                position: 'absolute',
+               
                top: 64, 
                left: 0,
                padding: '1.5rem',
