@@ -58,7 +58,7 @@ const Categories = ({ loading: propsLoading }) => {
       <Grid container spacing={4}>
         {categoriesWithImages.map((category) => (
           <Grid item key={category.slug} xs={6} sm={4} md={3} lg={2}>
-            <Link to={`/category/${category.slug}`} style={{ textDecoration: 'none' }}>
+            <Link to={`proy5/category/${category.slug}`} style={{ textDecoration: 'none' }}>
               <Paper elevation={4} 
               sx={{ 
                 aspectRatio: '1/1',
