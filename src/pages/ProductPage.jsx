@@ -94,14 +94,14 @@ const ProductPage = () => {
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border 0.3s;
+    border-radius: 8px;
+  
     flex-wrap: wrap;
 }
 
 .product-img-thumbnail:hover {
-
-    border: 1px solid #333;
+    border: 2px solid #ff8c00;
+    border-radius: 8px;
 }
 
 
@@ -115,6 +115,8 @@ const ProductPage = () => {
 `} </style>
 
         <Box sx={{ padding: 4,
+        position: 'relative',
+        top: '5rem',
             
          }}>
             <Card sx={{ display: 'flex', flexDirection: 'row', padding: 4 ,

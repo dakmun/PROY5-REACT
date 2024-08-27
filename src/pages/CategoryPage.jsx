@@ -92,6 +92,8 @@ const CategoryPage = () => {
       `}</style>
 
       <Box sx={{
+        position: 'relative',
+        top: '5rem',
         padding: '1rem',
         '@media (max-width: 600px)': {
           padding: '12px',
