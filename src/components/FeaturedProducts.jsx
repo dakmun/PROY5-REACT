@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import useFetchProducts from '../hooks/useFetchProducts';
 
 const FeaturedProducts = () => {
-  const { products, loading } = useFetchProducts(); // Llama al hook dentro del componente funcional
+  const { products, loading } = useFetchProducts();
 
   if (loading) {
     return (
@@ -36,9 +36,16 @@ const FeaturedProducts = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 1,
           infinite: true,
+        }
+      },
+      {breakpoint: 900,
+        settings: {
+          slidesToShow: 3,  // Mostrar solo 2 slides en pantallas medianas
+          slidesToScroll: 1,
+          arrows: true,
         }
       },
       {
@@ -63,7 +70,7 @@ const FeaturedProducts = () => {
           padding: '0 2rem', // Reduce padding en pantallas medianas
         },
         '@media (max-width: 600px)': {
-          padding: '0 0.5rem', // Reduce padding en pantallas pequeñas
+          padding: '0 1rem', // Ajuste en pantallas pequeñas
           paddingBottom: '4rem',
         },
         '.slick-prev, .slick-next': {
@@ -105,12 +112,12 @@ const FeaturedProducts = () => {
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              width: '100%',  // Ocupa todo el ancho disponible
-              maxWidth: '500px', // Ajusta el ancho máximo de la tarjeta en pantallas pequeñas
-              padding: '0', // Elimina padding extra
+              width: '100%',
+              maxWidth: { xs: '100%', sm: '90%', md: '90%' }, // Ajuste del ancho máximo en diferentes pantallas
+              margin: '0 auto',
+              padding: '0',
               '@media (max-width: 600px)': {
                 maxWidth: '90%', // Asegura que ocupe casi todo el ancho disponible en pantallas pequeñas
-                margin: '0 auto',
               },
             }}
           >

@@ -25,8 +25,6 @@ const categoryMap = {
   'groceries': ['groceries'],
 };
 
-
-
 const CategoryPage = () => {
   const { slug } = useParams();
   const [products, setProducts] = useState([]);
@@ -34,7 +32,6 @@ const CategoryPage = () => {
   const [selectedSubcategory, setSelectedSubcategory] = useState('');
 
   const subcategories = categoryMap[slug] || [];
- 
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -73,48 +70,73 @@ const CategoryPage = () => {
   }
 
   return (
-    <Box sx={{
-      padding: '1rem',
-      '@media (max-width: 600px)': {
-        padding: '12px',
-    }
-    }}>
-      <Typography variant="h4" align="center" gutterBottom>
-       {transformSlug(slug)}
-      </Typography>
+    <>
+      <style>{`
+        /* Estilos específicos para ProductCard en CategoryPage */
+        .category-product-card .css-ci2o3a-MuiPaper-root-MuiCard-root {
+          aspect-ratio: auto; 
+          height: auto; 
+          padding: 10px; /* Añadir padding para evitar superposición */
+          max-width: 70%; /* Asegura que no se extiendan más allá del contenedor */
+        }
 
-      <SubcategoryMenu 
-        subcategories={subcategories}
-        selectedSubcategory={selectedSubcategory}
-        onSelectSubcategory={setSelectedSubcategory}
-      />
+        /* Cambiar font-size del título del producto */
+        .category-product-card .MuiTypography-h5 {
+          font-size: 0.9rem; /* Ajusta el tamaño según tus necesidades */
+        }
 
-      <Grid container 
-      sx={{
+        /* Añadir margen entre las tarjetas de producto */
+        .category-product-card {
+          margin-bottom: 16px;
+        }
+      `}</style>
+
+      <Box sx={{
+        padding: '1rem',
         '@media (max-width: 600px)': {
-          flexBasis: '0',
-          padding: '0',
-          justifyContent: 'center',
-      }
-    }}
-      
-      spacing={2}>
-        {products.map((product) => (
-          <Grid item xs={12} sm={4} md={3} key={product.id}
+          padding: '12px',
+        }
+      }}>
+        <Typography variant="h4" align="center" gutterBottom>
+          {transformSlug(slug)}
+        </Typography>
+
+        <SubcategoryMenu 
+          subcategories={subcategories}
+          selectedSubcategory={selectedSubcategory}
+          onSelectSubcategory={setSelectedSubcategory}
+        />
+
+        <Grid container spacing={2}
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
             '@media (max-width: 600px)': {
-              flexBasis: '0',
-              padding: '0',
-          }
-          }}>
-            <ProductCard product={product} />
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+              justifyContent: 'center',
+              textAlign: '-webkit-center', // Alinear el contenido al centro en pantallas pequeñas
+            }
+          }}
+        >
+          {products.map((product) => (
+            <Grid item xs={6} sm={3.5} md={2.5} key={product.id}
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '0 8px', // Añadir padding lateral para evitar superposición
+                '@media (max-width: 600px)': {
+                  padding: '0 4px', // Padding más ajustado en pantallas pequeñas
+                  justifyContent: 'inherit',
+                }
+              }}
+            >
+              {/* Añadimos la clase personalizada "category-product-card" */}
+              <Box className="category-product-card">
+                <ProductCard product={product} />
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </>
   );
 };
 
