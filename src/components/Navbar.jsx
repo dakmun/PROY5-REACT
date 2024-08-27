@@ -176,6 +176,7 @@ const Navbar = () => {
              {categories.map((category) => (
 
               <Link 
+              onClick={handleMouseLeave}
               key={category.slug} sx={{ fontSize: '1.5rem', cursor: 'pointer', color: '#fff', display: 'inline-flex', textDecoration: 'none', width: 'fit-content' , '&:hover': { color: 'orange', textDecoration: 'underline' } }}
               to={`/category/${category.slug}`} style={{ textDecoration: 'none' }}>
                <Typography 
