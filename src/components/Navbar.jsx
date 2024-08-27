@@ -44,18 +44,21 @@ const Navbar = () => {
   const drawer = (
     <Box sx={{ width: 250, backgroundColor: '#202020', height: '100%' }}>
       <Toolbar>
-      <Typography variant="h6" component={Link} to="/" sx={{ textDecoration: 'none', display: 'flex', alignItems: 'center' , padding: '0.5rem', borderRadius: '0.5rem' , opacity: '1' , color: 'orange' }}>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+      <Typography variant="h6"  sx={{ textDecoration: 'none', display: 'flex', alignItems: 'center' , padding: '0.5rem', borderRadius: '0.5rem' , opacity: '1' , color: 'orange' }}>
 <StoreIcon/> LOGO
 </Typography>
+</Link>
       </Toolbar>
       <Divider />
       <List>
         {categories.map((category) => (
+          
           <ListItem button 
           onClick={toggleDrawer(false)}
-          component={Link} to={`/category/${category.slug}`} 
+       
           key={category.name}>
-            <ListItemText primary={category.name} sx={{ color:'#fff', '&:hover': { color: 'orange', textDecoration: 'underline' } }} />
+             <Link to={`/category/${category.slug}`}><ListItemText primary={category.name} sx={{ color:'#fff', '&:hover': { color: 'orange', textDecoration: 'underline' } }} /></Link> 
           </ListItem>
         ))}
       </List>
@@ -79,23 +82,28 @@ const Navbar = () => {
           edge="start" aria-label="menu" onClick={toggleDrawer(true)}>
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component={Link} to="/" sx={{ textDecoration: 'none', display: 'flex', alignItems: 'center' , padding: '0.5rem', borderRadius: '0.5rem' , opacity: '1' , color: 'orange' }}>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+          <Typography variant="h6" sx={{ textDecoration: 'none', display: 'flex', alignItems: 'center' , padding: '0.5rem', borderRadius: '0.5rem' , opacity: '1' , color: 'orange' }}>
           <StoreIcon/> LOGO
 </Typography>
+</Link>
          </>
         )}
            
     
         {!isMobile && (
 <>
-<Typography variant="h6" component={Link} to="/" sx={{ textDecoration: 'none', display: 'flex', alignItems: 'center' , padding: '0.5rem', borderRadius: '0.5rem' , opacity: '1' , color: 'orange' }}>
+<Link to="/" style={{ textDecoration: 'none' }}>
+
+<Typography variant="h6"  sx={{ textDecoration: 'none', display: 'flex', alignItems: 'center' , padding: '0.5rem', borderRadius: '0.5rem' , opacity: '1' , color: 'orange' }}>
 <StoreIcon/> LOGO
 </Typography>
+</Link>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
              
-
+            <Link to="/" style={{ textDecoration: 'none' }}>
               <Typography 
-                component={Link} to="/"
+               
             sx={{ 
         
                 '&:hover': {   color: 'orange',
@@ -106,6 +114,7 @@ const Navbar = () => {
             variant="h6" >
              Home
             </Typography>
+            </Link>
 
           <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
           className="categories-item">
@@ -128,9 +137,10 @@ const Navbar = () => {
 
                 `}
             </style>
+            <Link to="/categories" style={{ textDecoration: 'none' }}>
             <Button 
             onClick={handleMouseLeave}
-            component={Link} to='/categories'
+           
          
             sx={{ 
         
@@ -140,7 +150,7 @@ const Navbar = () => {
          }}
 
       
-            > Categorías </Button>
+            > Categorías </Button> </Link>
   
             {menuOpen && (
              <Box
@@ -164,12 +174,16 @@ const Navbar = () => {
            >
        
              {categories.map((category) => (
+
+              <Link 
+              key={category.slug} sx={{ fontSize: '1.5rem', cursor: 'pointer', color: '#fff', display: 'inline-flex', textDecoration: 'none', width: 'fit-content' , '&:hover': { color: 'orange', textDecoration: 'underline' } }}
+              to={`/category/${category.slug}`} style={{ textDecoration: 'none' }}>
                <Typography 
-                onClick={handleMouseLeave}
-                 component={Link} to={`/category/${category.slug}`} reloadDocument
-               key={category.name} sx={{ fontSize: '1.5rem', cursor: 'pointer', color: '#fff', display: 'inline-flex', textDecoration: 'none', width: 'fit-content' , '&:hover': { color: 'orange', textDecoration: 'underline' } }}>
+              >
                  {category.name}
                </Typography>
+                </Link>
+
              ))}
            </Box>
             )}
