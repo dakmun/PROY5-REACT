@@ -201,9 +201,11 @@ object-fit: contain;
              }}>
               {product.description.slice(0, 80)}...
             </Typography>
-            <Button variant="contained" color="error" component={Link} to={`/product/${product.id}`}>
+            <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
+            <Button variant="contained" color="error" >
               Shop now
             </Button>
+            </Link>
           </Box>
           <Box 
     

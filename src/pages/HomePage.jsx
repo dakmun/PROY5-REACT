@@ -15,13 +15,30 @@ const HomePage = () => {
 
   return (
    <>
-    <Box sx={{backgroundColor: '#333'}}> 
+    <Box sx={{
+      position: 'relative',
+      top: '56px',
+      backgroundColor: '#333'}}> 
       <HeroCarousel  />
       </Box>
 
-      <Box>
-      <FeaturedProducts products={products} loading={productsLoading} />  
-    </Box>
+      <Box
+  sx={{
+    position: 'relative',
+    top: '3rem',
+zIndex: 1,
+    backgroundColor: '#333',
+
+    overflow: 'visible',
+    //  backgroundColor: '#333',
+
+    paddingBottom: '5rem',
+
+  }}
+>
+  <FeaturedProducts products={products} loading={productsLoading} />
+</Box>
+
 
     </> 
   );

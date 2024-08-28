@@ -16,6 +16,18 @@ const SubcategoryMenu = ({ subcategories, selectedSubcategory, onSelectSubcatego
             background-color: orange;
             color: #FFF;
           }
+
+
+ .css-a2d4cr {
+            background-color: #1A1A1A;
+            color: #FFF;
+
+          }
+
+..css-1jrpx8b:hover {
+            background-color: orange;
+            color: #FFF;
+          }
       `}
       </style>
 

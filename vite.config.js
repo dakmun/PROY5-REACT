@@ -1,9 +1,10 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/proy5/',
+  base: '/PROY5-REACT/', // Reemplaza REPO_NAME con el nombre de tu repositorio
   build: {
     rollupOptions: {
       output: {
